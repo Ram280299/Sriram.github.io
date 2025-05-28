@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sriram Banothu - Senior Data Analyst Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(64, 224, 208, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(255, 107, 107, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.05) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #40E0D0, #FF6B6B, #8A2BE2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: #fff;
+            font-weight: bold;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .profile-info {
+            text-align: left;
+            color: white;
+        }
+
+        h1 {
+            color: #40E0D0;
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(64, 224, 208, 0.5);
+        }
+
+        .subtitle {
+            color: #FF6B6B;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .experience-highlight {
+            color: #8A2BE2;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(64, 224, 208, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(64, 224, 208, 0.3);
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #40E0D0, #FF6B6B, #8A2BE2);
+        }
+
+        .section h2 {
+            color: #40E0D0;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            text-shadow: 0 0 15px rgba(64, 224, 208, 0.3);
+            position: relative;
+        }
+
+        .about-text {
+            color: #e0e0e0;
+            font-size: 1.1em;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .stat-card {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(64, 224, 208, 0.1), transparent);
+            animation: rotate 4s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(64, 224, 208, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            color: #FF6B6B;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-label {
+            color: #40E0D0;
+            font-size: 1.1em;
+            margin-top: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            color: #FF6B6B;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: rgba(64, 224, 208, 0.2);
+            color: #40E0D0;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid rgba(64, 224, 208, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(64, 224, 208, 0.3);
+            transform: scale(1.05);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #40E0D0, #FF6B6B, #8A2BE2);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            border-color: rgba(64, 224, 208, 0.5);
+        }
+
+        .project-card h3 {
+            color: #40E0D0;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .project-description {
+            color: #e0e0e0;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: rgba(138, 43, 226, 0.2);
+            color: #8A2BE2;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            border: 1px solid rgba(138, 43, 226, 0.3);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #FF6B6B;
+            text-decoration: none;
+            padding: 10px 18px;
+            background: rgba(255, 107, 107, 0.1);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            border-radius: 25px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: rgba(255, 107, 107, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .ai-enhancement {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(138, 43, 226, 0.2);
+            color: #8A2BE2;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            border: 1px solid rgba(138, 43, 226, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            header {
+                padding: 30px 20px;
+            }
+            
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-info {
+                text-align: center;
+            }
+            
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            .contact-info {
+                gap: 10px;
+            }
+            
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <div class="profile-section">
+                <div class="profile-img">SB</div>
+                <div class="profile-info">
+                    <h1>Sriram Banothu</h1>
+                    <div class="subtitle">Senior Data Analyst | Master of Science Analytics</div>
+                    <div class="experience-highlight">5+ Years at DXC Technology | Fortune 500 Client Expert</div>
+                </div>
+            </div>
+            <div class="contact-info">
+                <a href="mailto:b.sriramtech28@gmail.com" class="contact-item">
+                    📧 b.sriramtech28@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/sriramban/" class="contact-item">
+                    💼 LinkedIn
+                </a>
+                <a href="tel:+14752279232" class="contact-item">
+                    📞 +1 475-227-9232
+                </a>
+                <span class="contact-item">
+                    📍 West Haven, CT
+                </span>
+            </div>
+        </header>
+
+        <!-- About Section -->
+        <section class="section">
+            <h2>Professional Summary</h2>
+            <p class="about-text">
+                Accomplished Senior Data Analyst with 5+ years of progressive experience at DXC Technology, delivering data-driven solutions for Fortune 500 clients including Boeing, Cardinal Health, and Regions Bank. Currently pursuing Master of Science in Analytics at University of New Haven (GPA: 3.8/4.0). Proven expertise in transforming complex business requirements into actionable insights, driving operational efficiency improvements of up to 70% and cost savings exceeding $500K annually. Specialized in end-to-end analytics projects, from data extraction and modeling to advanced machine learning implementations and executive reporting.
+            </p>
+        </section>
+
+        <!-- Professional Stats -->
+        <section class="section">
+            <h2>Impact & Achievements</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$575K</span>
+                    <span class="stat-label">Annual Cost Savings</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">70%</span>
+                    <span class="stat-label">Efficiency Improvement</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">10M+</span>
+                    <span class="stat-label">Records Processed</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">3.8</span>
+                    <span class="stat-label">Graduate GPA</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">45%</span>
+                    <span class="stat-label">Timeline Reduction</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="section">
+            <h2>Technical Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming & Analytics</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">PL/SQL</span>
+                        <span class="skill-tag">SAS</span>
+                        <span class="skill-tag">Scala</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Machine Learning & AI</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">Linear/Logistic Regression</span>
+                        <span class="skill-tag">K-Means Clustering</span>
+                        <span class="skill-tag">NLP</span>
+                        <span class="skill-tag">Time Series Analysis</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Data Visualization & BI</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Looker</span>
+                        <span class="skill-tag">ggplot2</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Big Data & Cloud Platforms</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS Glue</span>
+                        <span class="skill-tag">Azure Data Factory</span>
+                        <span class="skill-tag">GCP BigQuery</span>
+                        <span class="skill-tag">Databricks</span>
+                        <span class="skill-tag">Apache Spark</span>
+                        <span class="skill-tag">Apache Kafka</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Databases & Data Engineering</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Oracle SQL Server</span>
+                        <span class="skill-tag">Teradata SQL</span>
+                        <span class="skill-tag">Snowflake</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Informatica PowerCenter</span>
+                        <span class="skill-tag">SSIS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Statistical & Analytics Methods</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">A/B Testing</span>
+                        <span class="skill-tag">Hypothesis Testing</span>
+                        <span class="skill-tag">Predictive Modeling</span>
+                        <span class="skill-tag">Time Series Forecasting</span>
+                        <span class="skill-tag">Supply Chain Analytics</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- University Projects -->
+        <section class="section">
+            <h2>University of New Haven - Academic Projects</h2>
+            <div class="ai-enhancement">AI-Enhanced Analytics</div>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>AI-Enhanced Procurement System for Indian Railways</h3>
+                    <p class="project-description">
+                        Led development of intelligent search engine for Indian Railways' procurement of 280,000+ non-stock items across 215 depots nationwide. Implemented TF-IDF vectorization and cosine similarity algorithms to improve search relevance and efficiency for field officers. Built comprehensive R Shiny web application with real-time search capabilities, reducing procurement processing time significantly through advanced text mining and natural language processing techniques.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">R</span>
+                        <span class="tech-tag">TF-IDF</span>
+                        <span class="tech-tag">Cosine Similarity</span>
+                        <span class="tech-tag">R Shiny</span>
+                        <span class="tech-tag">Text Mining</span>
+                        <span class="tech-tag">NLP</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">🚂 Live Demo</a>
+                        <a href="#" class="project-link">📋 Technical Report</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Advanced Healthcare Data Mining & Predictive Analytics</h3>
+                    <p class="project-description">
+                        Developed comprehensive machine learning models to predict patient readmission rates and optimize resource allocation in healthcare systems. Applied advanced statistical methods and NLP techniques to analyze electronic health records, achieving 92% accuracy in risk stratification models. Presented findings to healthcare professionals and faculty panel of 15+ members.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">NLP</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Random Forest</span>
+                        <span class="tech-tag">Tableau</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">📊 Dashboard</a>
+                        <a href="#" class="project-link">📋 Research Paper</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Supply Chain Optimization Using AI & Operations Research</h3>
+                    <p class="project-description">
+                        Led a comprehensive supply chain analytics project focusing on demand forecasting and inventory optimization for multi-location operations. Utilized advanced machine learning algorithms and operations research techniques to reduce inventory costs by 35% while maintaining 99% service levels. Coordinated with cross-functional student teams of 8+ members.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">R</span>
+                        <span class="tech-tag">Operations Research</span>
+                        <span class="tech-tag">Time Series</span>
+                        <span class="tech-tag">ARIMA</span>
+                        <span class="tech-tag">Power BI</span>
+                        <span class="tech-tag">Linear Programming</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">📈 Analysis Report</a>
+                        <a href="#" class="project-link">🔍 Model Demo</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Advanced Marketing Analytics & Customer Segmentation</h3>
+                    <p class="project-description">
+                        Implemented sophisticated customer segmentation strategies using unsupervised learning techniques and analytical marketing principles. Developed RFM analysis framework and clustering algorithms to identify high-value customer segments, resulting in targeted marketing strategies with 45% higher conversion rates. Presented to marketing executives and faculty committee.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">K-Means</span>
+                        <span class="tech-tag">RFM Analysis</span>
+                        <span class="tech-tag">Analytical Marketing</span>
+                        <span class="tech-tag">Seaborn</span>
+                        <span class="tech-tag">Matplotlib</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">📊 Segmentation Model</a>
+                        <a href="#" class="project-link">📑 Marketing Strategy</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Big Data Processing & Cloud Computing Implementation</h3>
+                    <p class="project-description">
+                        Architected and implemented a scalable big data processing pipeline using cloud computing platforms and distributed processing frameworks. Processed 50GB+ datasets using Spark and Hadoop ecosystems, demonstrating expertise in modern data engineering practices. Collaborated with cloud architecture specialists and presented to industry professionals panel of 12+ experts.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Apache Spark</span>
+                        <span class="tech-tag">Hadoop</span>
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">Cloud Computing</span>
+                        <span class="tech-tag">Data Warehousing</span>
+                        <span class="tech-tag">ETL Processes</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">☁️ Cloud Architecture</a>
+                        <a href="#" class="project-link">⚡ Performance Metrics</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Advanced Statistical Modeling & A/B Testing Framework</h3>
+                    <p class="project-description">
+                        Designed and executed comprehensive A/B testing framework for digital marketing campaigns using advanced statistical methods. Applied hypothesis testing, confidence intervals, and statistical significance testing to validate data-driven strategies. Achieved 95% statistical confidence in results and presented methodology to academic research committee of 20+ faculty members.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">R</span>
+                        <span class="tech-tag">A/B Testing</span>
+                        <span class="tech-tag">Hypothesis Testing</span>
+                        <span class="tech-tag">Advanced Statistics</span>
+                        <span class="tech-tag">Statistical Modeling</span>
+                        <span class="tech-tag">ggplot2</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">📊 Testing Framework</a>
+                        <a href="#" class="project-link">📈 Statistical Results</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
